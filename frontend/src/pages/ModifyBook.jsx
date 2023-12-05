@@ -5,6 +5,8 @@ import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useSnackbar } from 'notistack';
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const ModifyBook = () => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
@@ -16,7 +18,7 @@ const ModifyBook = () => {
 
   useEffect(() => {
     setLoading(true);
-    axios.get(`http://mern-lb-1218793941.us-east-1.elb.amazonaws.com:5000/${id}`)
+    axios.get(`${API_URL}/${id}`)
     .then((response) => {
         setAuthor(response.data.author);
         setPublishYear(response.data.publishYear)
@@ -37,7 +39,7 @@ const ModifyBook = () => {
     };
     setLoading(true);
     axios
-      .put(`http://mern-lb-1218793941.us-east-1.elb.amazonaws.com:5000/items/${id}`, data)
+      .put(`${API_URL}/${id}`, data)
       .then(() => {
         setLoading(false);
         enqueueSnackbar('Book Edited successfully', { variant: 'success' });

@@ -5,7 +5,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useSnackbar } from 'notistack';
 
-const API_URL = 'http://mern-lb-1218793941.us-east-1.elb.amazonaws.com:5000/'
+const API_URL = import.meta.env.VITE_API_URL;
 
 const CreateBook = () => {
   const [title, setTitle] = useState('');
@@ -23,7 +23,7 @@ const CreateBook = () => {
     };
     setLoading(true);
     axios
-      .post(API_URL, data)
+      .post(`${API_URL}`, data)
       .then(() => {
         setLoading(false);
         enqueueSnackbar('Book Created successfully', { variant: 'success' });
