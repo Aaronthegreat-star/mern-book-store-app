@@ -12,7 +12,7 @@ const GetBook = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`http://localhost:5000/items/${id}`)
+      .get(`http://mern-lb-1218793941.us-east-1.elb.amazonaws.com:5000/items/${id}`)
       .then((response) => {
         setBook(response.data);
         setLoading(false);
