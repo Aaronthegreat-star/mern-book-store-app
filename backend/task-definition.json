@@ -1,0 +1,70 @@
+{
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:839399074955:task-definition/ecs-task-def:3",
+    "containerDefinitions": [
+        {
+            "name": "mern-backend",
+            "image": "mayusb/mern-backend:lastest",
+            "cpu": 1024,
+            "memory": 2048,
+            "memoryReservation": 1024,
+            "portMappings": [
+                {
+                    "name": "mern-backend-5000-tcp",
+                    "containerPort": 5000,
+                    "hostPort": 5000,
+                    "protocol": "tcp",
+                    "appProtocol": "http"
+                }
+            ],
+            "essential": true,
+            "environment": [
+                {
+                    "name": "PORT",
+                    "value": "5000"
+                },
+                {
+                    "name": "MONGO_DB",
+                    "value": "mongodb+srv://root:root@cluster0.btk2bao.mongodb.net/?retryWrites=true&w=majority"
+                }
+            ],
+            "environmentFiles": [],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "ulimits": []
+        }
+    ],
+    "family": "ecs-task-def",
+    "executionRoleArn": "arn:aws:iam::839399074955:role/ecsTaskExecutionRole",
+    "networkMode": "awsvpc",
+    "revision": 3,
+    "volumes": [],
+    "status": "ACTIVE",
+    "requiresAttributes": [
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.21"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+        },
+        {
+            "name": "ecs.capability.task-eni"
+        }
+    ],
+    "placementConstraints": [],
+    "compatibilities": [
+        "EC2",
+        "FARGATE"
+    ],
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "1024",
+    "memory": "3072",
+    "runtimePlatform": {
+        "cpuArchitecture": "X86_64",
+        "operatingSystemFamily": "LINUX"
+    },
+    "registeredAt": "2023-12-04T18:56:45.963Z",
+    "registeredBy": "arn:aws:iam::839399074955:root",
+    "tags": []
+}
