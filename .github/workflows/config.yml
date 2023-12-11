@@ -23,7 +23,10 @@ jobs:
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
-        uses: actions/checkout@v2
+
+      - name: Checkout Step
+        id: checkout-step
+        uses: actions/checkout@v2       
 
       - name: Build, tag, and push image to Amazon ECR
         id: build-image
