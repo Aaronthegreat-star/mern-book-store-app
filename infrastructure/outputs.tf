@@ -3,5 +3,5 @@ output "lb_name" {
 }
 
 output "ecr_repo_id" {
-  value = aws_ecrpublic_repository.ecr_repo.id
+  value = aws_ecr_repository.ecr_repo.id
 }
