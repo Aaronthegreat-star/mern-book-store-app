@@ -2,7 +2,7 @@ name: ECS Deployment
 
 env:
   TF_WORKSPACE: "mern-book-store-app"
-  TF_ORGANIZATION: "CloudSenseiNG"
+  TF_CLOUD_ORGANIZATION: "CloudSenseiNG"
   TF_API_TOKEN: "${{ secrets.TF_API_TOKEN }}"
 
 on:
