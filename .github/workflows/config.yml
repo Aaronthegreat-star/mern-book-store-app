@@ -46,7 +46,7 @@ jobs:
 
   ECSdeployment:
     runs-on: ubuntu-latest
-    needs: terraform-apply
+    needs: terraform
     defaults:
       run:
         working-directory: ./backend    
