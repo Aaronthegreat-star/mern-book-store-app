@@ -62,7 +62,7 @@ jobs:
         with:
           workspace: ${{ env.TF_WORKSPACE }}
           directory: "./"
-          speculative: false
+          speculative: true
 
       - name: Create Apply Run
         uses: hashicorp/tfc-workflows-github/actions/create-run@v1.0.0
@@ -109,7 +109,7 @@ jobs:
         id: build-image
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: t9o6b8v0/ecr-repo
+          ECR_REPOSITORY: ecr-repo
           IMAGE_TAG: ${{ github.sha }}
         run: |
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
@@ -131,3 +131,4 @@ jobs:
           service: ecs-service
           cluster: ECSCluster
           wait-for-service-stability: true
+          
