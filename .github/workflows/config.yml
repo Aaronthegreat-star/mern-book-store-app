@@ -62,7 +62,6 @@ jobs:
         with:
           workspace: ${{ env.TF_WORKSPACE }}
           directory: "./"
-          speculative: true
 
       - name: Create Apply Run
         uses: hashicorp/tfc-workflows-github/actions/create-run@v1.0.0
