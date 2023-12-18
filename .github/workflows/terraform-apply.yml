@@ -34,6 +34,7 @@ jobs:
         uses: hashicorp/tfc-workflows-github/actions/create-run@v1.1.1
         id: apply-run
         with:
+          plan_only: true
           workspace: ${{ env.TF_WORKSPACE }}
           configuration_version: ${{ steps.apply-upload.outputs.configuration_version_id }}
 
